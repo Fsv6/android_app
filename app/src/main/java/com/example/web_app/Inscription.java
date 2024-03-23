@@ -30,40 +30,72 @@ public class Inscription extends AppCompatActivity {
         // Créer une SpannableString
         SpannableString spannableString = new SpannableString(texteComplet);
 
-        // Définir la couleur bleue pour la première partie du texte
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.ecriture)), 0, 14, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.bg)), 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new UnderlineSpan(), 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.ecriture)), 54, 70, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.bgs)), 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new UnderlineSpan(), 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-
-        ClickableSpan clickableSpan = new ClickableSpan() {
+        // Définir les ClickableSpans pour chaque partie du texte
+        ClickableSpan conditionsClickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
-                // Action à effectuer lors du clic, par exemple ouvrir un lien
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com"));
-                startActivity(intent);
+                afficherDialogueConditions();
+            }
+        };
+        ClickableSpan confidentialiteClickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                afficherDialogueConfidentialite();
             }
         };
 
-        spannableString.setSpan(clickableSpan, 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-
-
+        // Appliquer les ClickableSpans au TextView
+        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(conditionsClickableSpan, 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(confidentialiteClickableSpan, 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         // Activer la gestion des clics sur le TextView
         Condition.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 
         // Appliquer la SpannableString au TextView
         Condition.setText(spannableString);
-
-
     }
+
+    private void afficherDialogueConditions() {
+        // Message spécifique pour les Conditions d'utilisation
+        String messageConditions = "En acceptant nos conditions d'utilisation, vous vous engagez à respecter les règles suivantes :\n" +
+                "1. Vous ne devez pas utiliser notre service à des fins illicites.\n" +
+                "2. Vous ne devez pas violer les droits de propriété intellectuelle d'autrui.\n" +
+                "3. Vous ne devez pas perturber le fonctionnement normal de notre service.\n" +
+                "4. Vous ne devez pas diffuser de contenu offensant ou inapproprié.\n" +
+                "En cas de violation de ces règles, nous nous réservons le droit de suspendre ou de résilier votre compte.";
+
+        // Création du dialogue
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Conditions d'utilisation")
+                .setMessage(messageConditions)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    private void afficherDialogueConfidentialite() {
+        // Message spécifique pour la Politique de confidentialité
+        String messageConfidentialite = "Dans le cadre de notre politique de confidentialité, nous nous engageons à protéger vos informations personnelles. " +
+                "Nous ne partagerons jamais vos données avec des tiers sans votre consentement.\n" +
+                "Vous devez également accepter de ne pas partager votre identifiant ou mot de passe avec d'autres utilisateurs.";
+
+        // Création du dialogue
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Politique de confidentialité")
+                .setMessage(messageConfidentialite)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
 }
