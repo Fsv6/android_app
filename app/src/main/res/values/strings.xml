@@ -5,5 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="Notification"> Je souhaite recevoir les notifications de l’application, notamment celles de disponibilité d’un médicament signalé.</string>
     <string name="inscription">Inscription</string>
+    <string name="forgot_password_msg">Ne vous inquiétez pas ! Cela arrive. Veuillez saisir l adresse électronique associée à votre compte.</string>
+    <string name="on_submit_msg">Vérifiez votre boîte aux lettres, vous recevrez un e-mail contenant un lien qui vous permettra de réinitialiser votre mot de passe.</string>
 
 </resources>
