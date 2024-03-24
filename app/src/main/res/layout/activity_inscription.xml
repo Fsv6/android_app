@@ -45,7 +45,7 @@
 
         <EditText
 
-            android:id="@+id/edit_name"
+            android:id="@+id/inscr_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nom"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/tilName">
 
         <EditText
-            android:id="@+id/edit_surname"
+            android:id="@+id/inscr_prenom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Prénom"
@@ -98,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView3">
 
         <EditText
-            android:id="@+id/edit_email"
+            android:id="@+id/inscr_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -129,7 +129,7 @@
 
         <EditText
 
-            android:id="@+id/edit_password"
+            android:id="@+id/inscr_motdepasse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
@@ -204,5 +204,22 @@
         app:layout_constraintHorizontal_bias="0.361"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btninscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_bg"
+        android:text="Inscription"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Notification" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
