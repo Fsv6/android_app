@@ -3,4 +3,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="pharmassist">PharmAssist</string>
+    <string name="une_application_financ_e_par">Une application financée par :</string>
+    <string name="demandeCoLog">Pour assurer la sécurité de vos données médicales, nous vous demandons de bien vouloir vous connecter :</string>
+    <string name="hint_id">Identifiant</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="mot_de_passe_oubli">Mot de passe oublié ?</string>
+    <string name="s_inscrire">S\'inscrire</string>
+    <string name="text_inscrip">Si vous n’avez pas encore de compte :</string>
 </resources>
