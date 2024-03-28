@@ -142,42 +142,7 @@ public class Connexion extends AppCompatActivity {
             }
         });
 
-        /*
-        //Inside onCreate
-        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gClient = GoogleSignIn.getClient(this, gOptions);
 
-        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
-        if (gAccount != null){
-            finish();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
-        ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if (result.getResultCode() == Activity.RESULT_OK){
-                            Intent data = result.getData();
-                            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-                            try {
-                                task.getResult(ApiException.class);
-                                finish();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                            } catch (ApiException e){
-                                Toast.makeText(LoginActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-                });
-        googleBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent signInIntent = gClient.getSignInIntent();
-                activityResultLauncher.launch(signInIntent);
-            }
-        });*/
     }
 
     private void googleSignin() {
@@ -203,28 +168,6 @@ public class Connexion extends AppCompatActivity {
         }
     }
 
-    /* private void firebaseAuthWithGoogle(String idToken) {
-         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-         auth.signInWithCredential(credential)
-                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                     @Override
-                     public void onComplete(@NonNull Task<AuthResult> task) {
-                         if (task.isSuccessful()) {
-                             Log.d(TAG, "signInWithCredential:success");
-                             FirebaseUser user = auth.getCurrentUser();
-                             // Ajouter l'utilisateur à Firestore
-                             if (user != null) {
-                                 addUserToFirestore(user);
-                             }
-                         } else {
-                             // If sign in fails, display a message to the user.
-                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                             Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                     Toast.LENGTH_SHORT).show();
-                         }
-                     }
-                 });
-     }*/
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(credential)
@@ -258,38 +201,6 @@ public class Connexion extends AppCompatActivity {
         finish(); // Pour fermer l'activité actuelle après la redirection
     }
 
-
-    /*private void addUserToFirestore(FirebaseUser user) {
-        // Accéder à l'instance de Firestore
-        fStore = FirebaseFirestore.getInstance();
-
-
-        // Créer un nouvel objet utilisateur avec l'email et le prénom
-        Map<String, Object> userData = new HashMap<>();
-        userData.put("Email", user.getEmail());
-
-        // Diviser le nom complet en prénom et nom de famille
-        String[] nameParts = user.getDisplayName().split(" ");
-        if (nameParts.length > 0) {
-            userData.put("fname", nameParts[0]);
-        }
-
-        // Ajouter l'utilisateur à la collection "users" avec son UID comme identifiant de document
-        fStore.collection("users").document(user.getUid())
-                .set(userData)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "User added to Firestore successfully");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding user to Firestore", e);
-                    }
-                });
-    }*/
     private void addUserToFirestore(FirebaseUser user) {
         // Accéder à l'instance de Firestore
         fStore = FirebaseFirestore.getInstance();
@@ -315,7 +226,7 @@ public class Connexion extends AppCompatActivity {
                         // Diviser le nom complet en prénom et nom de famille
                         String[] nameParts = user.getDisplayName().split(" ");
                         if (nameParts.length > 0) {
-                            userData.put("fname", nameParts[0]);
+                            userData.put("Nom", nameParts[0]);
                         }
 
                         // Ajouter l'utilisateur à la collection "users" avec son UID comme identifiant de document
