@@ -12,16 +12,15 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/rect_back"
+            android:elevation="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mail_recupe"
             app:tabGravity="fill"
-            android:elevation="3dp"
-            android:background="@drawable/rect_back"
             app:tabIndicatorHeight="0dp"
             app:tabMode="fixed"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="10dp"
             app:tabRippleColor="@null"
             app:tabSelectedTextColor="@color/purple_500"
             app:tabTextColor="@color/black" />
@@ -34,6 +33,80 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+        <View
+            android:id="@+id/view2"
+
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:background="@color/bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_imageView"
+            android:layout_width="214dp"
+            android:layout_height="196dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/inconu3"
+            android:scaleType="centerCrop"
+            app:civ_border_color="#FF000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageupload"
+            android:layout_width="64dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.648"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_photo_camera_24" />
+
+        <TextView
+            android:id="@+id/name_recupe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textSize="25sp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="@+id/profile_imageView"
+            app:layout_constraintHorizontal_bias="0.543"
+            app:layout_constraintStart_toStartOf="@+id/profile_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/profile_imageView" />
+
+        <TextView
+            android:id="@+id/mail_recupe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/name_recupe"
+            app:layout_constraintStart_toStartOf="@+id/name_recupe"
+            app:layout_constraintTop_toBottomOf="@+id/name_recupe" />
+
+        <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+            android:id="@+id/bottomnav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:mbn_backgroundBottomColor="#E0D0E3"
+            app:mbn_circleColor="#ffffff"
+            app:mbn_countBackgroundColor="#090808"
+            app:mbn_countTextColor="#ffffff"
+            app:mbn_defaultIconColor="#1385BE"
+
+            app:mbn_rippleColor="#2f424242"
+            app:mbn_selectedIconColor="#3c415e"
+            app:mbn_shadowColor="#1f212121" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
