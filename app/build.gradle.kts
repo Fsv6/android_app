@@ -60,7 +60,6 @@ dependencies {
 
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
-    /* implementation ("org.naishadhparmar.zcustomcalendar:zcustomcalendar:1.0.1")*/
 
     implementation ("com.etebarian:meow-bottom-navigation:1.2.0")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61")
