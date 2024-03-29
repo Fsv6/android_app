@@ -148,8 +148,8 @@ public class Profile extends AppCompatActivity {
     private void setupViewPager(ViewPager2 viewPager) {
         adapter =new ViewPagerAdapter(activity.getSupportFragmentManager(),
                 activity.getLifecycle()     );
-        adapter.addFragment(new OneFragment(), "Papaya");
-        adapter.addFragment(new TwoFragment(), "Coders");
+        adapter.addFragment(new OneFragment(), "Signalements");
+        adapter.addFragment(new TwoFragment(), "Vos renouvellements");
 
 
         viewPager.setAdapter(adapter);

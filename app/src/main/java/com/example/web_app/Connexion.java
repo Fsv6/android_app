@@ -22,6 +22,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class Connexion extends AppCompatActivity {
     private FirebaseAuth auth;
     String userID;
     private CardView BtnSignInWithGoogleCardView;
+    private ImageView Admin;
     private FirebaseFirestore fStore;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 20;
@@ -69,6 +71,7 @@ public class Connexion extends AppCompatActivity {
         setContentView(R.layout.activity_connexion);
 
         loginEmail = findViewById(R.id.login_email);
+        Admin = findViewById(R.id.admin);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         Signup_button = findViewById(R.id.signup_button);
@@ -141,6 +144,14 @@ public class Connexion extends AppCompatActivity {
                 startActivity(new Intent(Connexion.this, ForgetPassword.class));
             }
         });
+        Admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Connexion.this, Admin.class));
+            }
+        });
+
+
 
 
     }

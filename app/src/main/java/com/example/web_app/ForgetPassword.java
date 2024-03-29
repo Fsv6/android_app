@@ -23,6 +23,7 @@ public class ForgetPassword extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText forgotPasswordEmail;
     private Button btnForgotPassword;
+    private ImageView Retourlogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class ForgetPassword extends AppCompatActivity {
         /*retourlogin = findViewById(R.id.retour_login);*/
         forgotPasswordEmail = findViewById(R.id.ForgotPasswordEmail);
         btnForgotPassword = findViewById(R.id.btnForgotPasswordSubmit);
+        Retourlogin =findViewById(R.id.retourlogin);
 
         auth = FirebaseAuth.getInstance();
 
@@ -41,7 +43,12 @@ public class ForgetPassword extends AppCompatActivity {
                 resetPassword();
             }
         });
-
+        retourlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ForgetPassword.this, Connexion.class));
+            }
+        });
 
 
 

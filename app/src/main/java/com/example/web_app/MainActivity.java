@@ -18,13 +18,12 @@ public class MainActivity extends AppCompatActivity {
     protected final int home = 1;
     protected final int liste = 2;
     protected final int profil = 3;
-    Button Reservercreneu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Reservercreneu = findViewById(R.id.reservercreneu);
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomnav);
         bottomNavigation.add(new MeowBottomNavigation.Model(profil, R.drawable.baseline_person_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(home, R.drawable.baseline_home_24));
