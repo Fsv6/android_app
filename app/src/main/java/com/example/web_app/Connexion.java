@@ -107,20 +107,28 @@ public class Connexion extends AppCompatActivity {
 
                 if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     if (!pass.isEmpty()) {
-                        auth.signInWithEmailAndPassword(email, pass)
-                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(Connexion.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(Connexion.this, MainActivity.class));
-                                        finish();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Connexion.this, "Échec de la connexion", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                        if (email.equals("admin@admin.com") && pass.equals("admin2024")) {
+                            // Si l'email et le mot de passe correspondent à l'administrateur
+                            Toast.makeText(Connexion.this, "Connexion réussie en tant qu'administrateur", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Connexion.this, Admin.class)); // Remplacez ActivitéAdmin par le nom de votre activité administrateur
+                            finish();
+                        } else {
+                            // Si ce n'est pas l'administrateur, connexion normale
+                            auth.signInWithEmailAndPassword(email, pass)
+                                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                        @Override
+                                        public void onSuccess(AuthResult authResult) {
+                                            Toast.makeText(Connexion.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(Connexion.this, MainActivity.class));
+                                            finish();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(Connexion.this, "Échec de la connexion", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
                     } else {
                         loginPassword.setError("Champs vides non autorisés");
                     }
@@ -129,6 +137,7 @@ public class Connexion extends AppCompatActivity {
                 } else {
                     loginEmail.setError("Veuillez saisir l'e-mail correct");
                 }
+
             }
         });
 
