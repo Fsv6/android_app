@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.web_app"
-        minSdk = 34
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -55,17 +55,11 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
     implementation ("com.google.android.gms:play-services-auth:19.0.0")
-
     implementation ("de.hdodenhof:circleimageview:3.1.0")
-
-
     implementation ("com.etebarian:meow-bottom-navigation:1.2.0")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61")
-    /*implementation ("com.github.TutorialsAndroid:GButton:v1.0.19")
-    implementation ("com.google.android.gms:play-services-auth:21.0.0")*/
-    /* implementation ("com.google.firebase:firebase-auth:23.0.0")
-     implementation ("com.google.firebase:firebase-database:23.0.0")*/
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+
 
 }

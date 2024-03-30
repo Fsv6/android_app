@@ -40,7 +40,7 @@
         />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView10"
@@ -58,7 +58,7 @@
         android:layout_marginStart="57dp"
         android:layout_marginTop="83dp"
         android:layout_marginEnd="23dp"
-        android:layout_toStartOf="@+id/button3"
+
         android:text="Code CIP" />
 
     <TextView
