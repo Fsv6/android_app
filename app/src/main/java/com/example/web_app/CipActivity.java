@@ -111,4 +111,3 @@ public class CipActivity extends AppCompatActivity {
                 });
     }
 }
-

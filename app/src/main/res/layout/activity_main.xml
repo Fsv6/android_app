@@ -58,7 +58,6 @@
         android:layout_marginStart="57dp"
         android:layout_marginTop="83dp"
         android:layout_marginEnd="23dp"
-
         android:text="Code CIP" />
 
     <TextView
