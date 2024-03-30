@@ -148,7 +148,6 @@ public class Inscription extends AppCompatActivity {
     }
 
     private void afficherDialogueConditions() {
-        // Message spécifique pour les Conditions d'utilisation
         String messageConditions = "En acceptant nos conditions d'utilisation, vous vous engagez à respecter les règles suivantes :\n" +
                 "1. Vous ne devez pas utiliser notre service à des fins illicites.\n" +
                 "2. Vous ne devez pas violer les droits de propriété intellectuelle d'autrui.\n" +

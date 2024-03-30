@@ -42,6 +42,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".CipActivity"
+            android:exported="false" />
+        <activity
             android:name=".CaptureAct"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"

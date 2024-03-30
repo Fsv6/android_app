@@ -198,7 +198,7 @@ public class Profile extends AppCompatActivity {
                             // Utilise Glide pour charger et afficher l'image à partir de l'URL
                             Glide.with(Profile.this).load(imageUrl).into(Profile_imageView);
                         }
-                        String userName = document.getString("Nom");
+                        String userName = document.getString("Prenom");
                         namerecupe.setText(userName);
 
                         String userEmail = document.getString("Email");

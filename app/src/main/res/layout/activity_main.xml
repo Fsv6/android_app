@@ -50,7 +50,7 @@
         android:text="DataMatrix" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_cip"
         android:layout_width="121dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView10"
