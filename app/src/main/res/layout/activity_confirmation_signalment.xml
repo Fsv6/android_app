@@ -8,11 +8,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_width="199dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_retour_pprincipale"
         app:srcCompat="@drawable/img" />
@@ -22,12 +21,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_bg"
+        android:fontFamily="@font/inter"
         android:text="Retour à la page principale"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,14 +37,16 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="370dp"
-        android:layout_height="61dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="24dp"
-        android:text="Votre signalement a été effectué avec succès !"
+        android:fontFamily="@font/inter"
+        android:text="Votre signalement a été effectué avec succès ! Vous le retrouverez sur la page de votre profil."
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -57,6 +59,7 @@
         android:textColor="@color/bg"
         android:textSize="34sp"
         android:textStyle="bold"
+        android:fontFamily="@font/inter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

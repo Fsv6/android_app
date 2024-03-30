@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Connexion">
+    tools:context=".Connexion"
+    >
 
 
     <TextView
@@ -17,6 +18,7 @@
         android:textColor="@color/bg"
         android:textSize="34sp"
         android:textStyle="bold"
+        android:fontFamily="@font/inter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -48,7 +50,8 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textSize="@dimen/et_text_size" />
+            android:textSize="@dimen/et_text_size"
+            android:fontFamily="@font/inter"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -75,7 +78,8 @@
             android:layout_height="wrap_content"
             android:hint="Mot de passe"
             android:inputType="textPassword"
-            android:textSize="@dimen/et_text_size" />
+            android:textSize="@dimen/et_text_size"
+            android:fontFamily="@font/inter"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -87,28 +91,31 @@
         android:text="Mot de passe oublié ?"
         android:textColor="@color/bg"
         android:textSize="18sp"
+        android:fontFamily="@font/inter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signup_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="40dp"
+        android:paddingHorizontal="15dp"
         android:background="@drawable/button_bg"
+
         android:text="@string/s_inscrire"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="@font/inter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.531" />
 
     <TextView
         android:id="@+id/textView8"
@@ -119,6 +126,7 @@
         android:gravity="center"
         android:text="@string/text_inscrip"
         android:textSize="20sp"
+
         app:layout_constraintTop_toBottomOf="@+id/view"
         tools:layout_editor_absoluteX="-16dp" />
 
@@ -157,8 +165,9 @@
                 android:gravity="center"
                 android:text="Login with Google"
                 android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/inter"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -176,26 +185,26 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:paddingHorizontal="15dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_bg"
         android:text="Connexion"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="@font/inter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
     <ImageView
         android:id="@+id/admin"
-        android:layout_width="75dp"
-        android:layout_height="71dp"
+        android:layout_width="63dp"
+        android:layout_height="62dp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.442"

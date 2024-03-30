@@ -9,8 +9,8 @@
         android:textSize="20sp"
         android:fontFamily="@font/inter"/>
 
-    <EditText android:id="@+id/usernameEditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="25dp" android:layout_marginEnd="25dp" android:layout_marginTop="50dp" android:minHeight="48dp" android:fontFamily="@font/inter" android:hint="Code CIP"/>
-    <EditText android:id="@+id/password" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="25dp" android:layout_marginEnd="25dp" android:layout_marginTop="25dp" android:minHeight="48dp" android:fontFamily="@font/inter" android:hint="Description (optionnel)" />
+    <EditText android:id="@+id/cipEditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="25dp" android:layout_marginEnd="25dp" android:layout_marginTop="50dp" android:minHeight="48dp" android:fontFamily="@font/inter" android:hint="Code CIP"/>
+    <EditText android:id="@+id/descriptionEditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="25dp" android:layout_marginEnd="25dp" android:layout_marginTop="25dp" android:minHeight="48dp" android:fontFamily="@font/inter" android:hint="Description (optionnel)" />
 
     <Button android:id="@+id/validateButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:paddingHorizontal="24dp" android:textSize="18sp" android:text="Valider" android:backgroundTint="?attr/colorPrimary" android:fontFamily="@font/inter"/>
 
