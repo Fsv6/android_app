@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/cipTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20px"
+            android:text="cip"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dateTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20px"
+            android:text="designationcip"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/black"
+            android:layout_alignLeft="@id/cipTV"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
