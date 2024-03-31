@@ -46,7 +46,7 @@ import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity {
     protected final int home = 1;
-    protected final int liste = 2;
+    protected final int param = 2;
     protected final int profil = 3;
     private TextView TextViewGreeting;
     private FirebaseFirestore fStor;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomnav);
         bottomNavigation.add(new MeowBottomNavigation.Model(profil, R.drawable.baseline_person_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(home, R.drawable.baseline_home_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(liste, R.drawable.ic_parametres));
+        bottomNavigation.add(new MeowBottomNavigation.Model(param, R.drawable.ic_parametres));
         bottomNavigation.show(1, true);
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, MainActivity.class);
                         startActivity(intent);
                         break;
-                    case liste:
+                    case param:
                         // Créer un Intent pour l'activité Dashboard
                         intent = new Intent(MainActivity.this, ParameterActivity.class);
                         startActivity(intent);
@@ -167,63 +167,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     });
-
-    /*private void validateCodeFromScan(String extractedCode) {
-        long codeCip = Long.parseLong(extractedCode);
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        fStor.collection("Medicaments")
-                .whereEqualTo("CIP13", codeCip)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            QuerySnapshot document = task.getResult();
-                            if (!document.isEmpty()) {
-                                DocumentSnapshot medDocument = document.getDocuments().get(0);
-                                String medNom = medDocument.getString("Denomination");
-                                if (medNom != null) {
-                                    // Afficher le nom du médicament
-                                    Toast.makeText(MainActivity.this, "Le médicament est : " + medNom, Toast.LENGTH_SHORT).show();
-                                    // Enregistrer le signalement
-                                    addSignalement(codeCip, medNom, userId, "");
-                                } else {
-                                    Toast.makeText(MainActivity.this, "Le nom du médicament n'est pas disponible pour ce code CIP.", Toast.LENGTH_SHORT).show();
-                                }
-                            } else {
-                                Toast.makeText(MainActivity.this, "Le code CIP spécifié n'existe pas dans la base de données.", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(MainActivity.this, "Erreur : " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-    private void addSignalement(long codeCip, String designation, String userId, String description){
-        Map<String, Object> signalement = new HashMap<>();
-        signalement.put("CIP13", codeCip);
-        signalement.put("designation", designation);
-        signalement.put("user_id", userId);
-        signalement.put("Date", new Date());
-        signalement.put("traité", false);
-        signalement.put("description", description);
-
-        fStor.collection("Signalements").add(signalement)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Intent intent = new Intent(MainActivity.this, ConfirmationSignalment.class);
-                        startActivity(intent);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MainActivity.this, "Erreur : " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }*/
     private void validateCodeFromScan(String extractedCode) {
         long codeCip = Long.parseLong(extractedCode);
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();

@@ -49,7 +49,7 @@ import kotlin.jvm.functions.Function1;
 
 public class Profile extends AppCompatActivity {
     protected final int home = 1;
-    protected final int liste = 2;
+    protected final int param = 2;
     protected final int profil = 3;
 
     private ActivityProfileBinding binding;
@@ -82,7 +82,7 @@ public class Profile extends AppCompatActivity {
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomnav);
         bottomNavigation.add(new MeowBottomNavigation.Model(profil, R.drawable.baseline_person_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(home, R.drawable.baseline_home_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(liste, R.drawable.baseline_list_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(param, R.drawable.ic_parametres));
         bottomNavigation.show(3, true);
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -104,9 +104,9 @@ public class Profile extends AppCompatActivity {
                         intent = new Intent(Profile.this, MainActivity.class);
                         startActivity(intent);
                         break;
-                    case liste:
+                    case param:
                         // Créer un Intent pour l'activité Dashboard
-                        intent = new Intent(Profile.this, ConfirmationSignalment.class);
+                        intent = new Intent(Profile.this, ParameterActivity.class);
                         startActivity(intent);
                         break;
                     case profil:
@@ -198,7 +198,7 @@ public class Profile extends AppCompatActivity {
                             // Utilise Glide pour charger et afficher l'image à partir de l'URL
                             Glide.with(Profile.this).load(imageUrl).into(Profile_imageView);
                         }
-                        String userName = document.getString("Prenom");
+                        String userName = document.getString("Nom");
                         namerecupe.setText(userName);
 
                         String userEmail = document.getString("Email");

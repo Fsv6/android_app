@@ -35,7 +35,7 @@ import java.util.UUID;
 
 public class UploadPhoto extends AppCompatActivity {
     StorageReference storageReference;
-    LinearProgressIndicator progressIndicator;
+ /*   LinearProgressIndicator progressIndicator;*/
     Uri image;
     Button uploadImage, selectImage;
     ImageView imageView;
@@ -62,10 +62,10 @@ public class UploadPhoto extends AppCompatActivity {
         FirebaseApp.initializeApp(UploadPhoto.this);
         storageReference = FirebaseStorage.getInstance().getReference();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
 
-        progressIndicator = findViewById(R.id.progress);
+       /* progressIndicator = findViewById(R.id.progress);*/
 
         imageView = findViewById(R.id.imageView);
         selectImage = findViewById(R.id.selectImage);
@@ -119,9 +119,6 @@ public class UploadPhoto extends AppCompatActivity {
             });
         }).addOnFailureListener(e -> {
             Toast.makeText(UploadPhoto.this, "Failed!" + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }).addOnProgressListener(taskSnapshot -> {
-            progressIndicator.setMax(Math.toIntExact(taskSnapshot.getTotalByteCount()));
-            progressIndicator.setProgress(Math.toIntExact(taskSnapshot.getBytesTransferred()));
         });
     }
 
