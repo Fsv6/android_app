@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="80dp" android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
     <TextView
-        android:id="@+id/title_param"
+        android:id="@+id/param_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Vos Paramètres"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_param"
         android:textAlignment="center"
         android:textColor="@color/bg"
         android:textSize="34sp"
         android:textStyle="bold"
         android:fontFamily="@font/inter"/>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="30dp" android:orientation="horizontal" android:layout_marginTop="50dp">
-        <TextView android:id="@+id/param1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Notifications" android:textSize="20sp" android:layout_marginEnd="55dp"/>
-        <com.google.android.material.switchmaterial.SwitchMaterial android:layout_width="wrap_content" android:layout_height="match_parent"/>
-    </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="30dp" android:orientation="horizontal" android:layout_marginTop="50dp">
-        <TextView android:id="@+id/param2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Caméra" android:textSize="20sp" android:layout_marginEnd="55dp"/>
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="43dp"/>
-    </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="30dp" android:orientation="horizontal" android:layout_marginTop="50dp">
-        <TextView android:id="@+id/param3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Paramètres" android:textSize="20sp" android:layout_marginEnd="55dp"/>
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"/>
-    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/preferences_container"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_deco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/button_bg"
+        android:text="@string/deco_btn"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>

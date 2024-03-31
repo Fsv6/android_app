@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomnav);
         bottomNavigation.add(new MeowBottomNavigation.Model(profil, R.drawable.baseline_person_24));
         bottomNavigation.add(new MeowBottomNavigation.Model(home, R.drawable.baseline_home_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(liste, R.drawable.baseline_list_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(liste, R.drawable.ic_parametres));
         bottomNavigation.show(1, true);
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case liste:
                         // Créer un Intent pour l'activité Dashboard
-                        intent = new Intent(MainActivity.this, ConfirmationSignalment.class);
+                        intent = new Intent(MainActivity.this, ParameterActivity.class);
                         startActivity(intent);
                         break;
                     case profil:

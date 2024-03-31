@@ -12,11 +12,13 @@
     <string name="mot_de_passe_oubli">Mot de passe oublié ?</string>
     <string name="s_inscrire">S\'inscrire</string>
     <string name="text_inscrip">Si vous n’avez pas encore de compte :</string>
-    <string name="forgot_password_msg">Ne vous inquiétez pas ! Cela arrive. Veuillez saisir l adresse électronique associée à votre compte.</string>
+    <string name="forgot_password_msg">Ne vous inquiétez pas ! Cela arrive. Veuillez saisir l\'adresse électronique associée à votre compte.</string>
     <string name="on_submit_msg">Vérifiez votre boîte aux lettres, vous recevrez un e-mail contenant un lien qui vous permettra de réinitialiser votre mot de passe.</string>
     <string name="Notification"> Je souhaite recevoir les notifications de l’application, notamment celles de disponibilité d’un médicament signalé.</string>
 
     <string name="inscription">Inscription</string>
     <string name="connexion">Connexion</string>
     <string name="default_web_client_id">YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+    <string name="deco_btn">Se déconnecter</string>
+    <string name="title_param">Mes paramètres</string>
 </resources>

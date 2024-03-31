@@ -38,6 +38,7 @@
         app:boxCornerRadiusBottomStart="@dimen/til_radius"
         app:boxCornerRadiusTopEnd="@dimen/til_radius"
         app:boxCornerRadiusTopStart="@dimen/til_radius"
+
         app:boxStrokeWidth="2dp"
 
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="notifications_category"
+        app:title="Notifications">
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Renouvellement"
+            app:summary="Autoriser les notifications de renouvellement"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:key="Cam_category"
+        app:title="Caméra">
+
+        <SwitchPreferenceCompat
+            app:key="cam"
+            app:title="Caméra"
+            app:summary="Autoriser l'accès à la caméra"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="help_category"
+        app:title="Aide">
+
+        <Preference
+            app:key="feedback"
+            app:summary="Faire une demande ou un feedback"
+            app:title="Contacter les développeurs"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

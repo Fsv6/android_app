@@ -30,6 +30,7 @@ public class CipActivity extends AppCompatActivity {
     private EditText codeCipEditText;
     private EditText descriptionEditText;
     private Button validateButton;
+    private Button dataMatrixButton;
     private FirebaseFirestore firestore;
 
     @Override
@@ -42,6 +43,15 @@ public class CipActivity extends AppCompatActivity {
         codeCipEditText = findViewById(R.id.cipEditText);
         descriptionEditText = findViewById(R.id.descriptionEditText);
         validateButton = findViewById(R.id.validateButton);
+        dataMatrixButton = findViewById(R.id.dataMButton);
+
+        dataMatrixButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CipActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
