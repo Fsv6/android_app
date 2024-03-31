@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-  <com.google.android.material.appbar.MaterialToolbar
+  <!--<com.google.android.material.appbar.MaterialToolbar
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/toolbar"
@@ -18,7 +18,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:id="@+id/progress"
-      android:layout_below="@id/toolbar"/>
+      android:layout_below="@id/toolbar"/>-->
 
   <ImageView
       android:id="@+id/imageView"
