@@ -33,9 +33,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class UploadPhoto extends AppCompatActivity {
+/*public class UploadPhoto extends AppCompatActivity {
     StorageReference storageReference;
- /*   LinearProgressIndicator progressIndicator;*/
+ //   LinearProgressIndicator progressIndicator;
     Uri image;
     Button uploadImage, selectImage;
     ImageView imageView;
@@ -65,7 +65,7 @@ public class UploadPhoto extends AppCompatActivity {
         /*Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
 
-       /* progressIndicator = findViewById(R.id.progress);*/
+       /* progressIndicator = findViewById(R.id.progress);
 
         imageView = findViewById(R.id.imageView);
         selectImage = findViewById(R.id.selectImage);
@@ -122,4 +122,4 @@ public class UploadPhoto extends AppCompatActivity {
         });
     }
 
-}
+}*/

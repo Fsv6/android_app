@@ -59,7 +59,6 @@ public class Profile extends AppCompatActivity {
     private FirebaseFirestore fStor;
     private FirebaseAuth auth;
     private String userID;
-    private ImageView Image, Profile_imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +66,8 @@ public class Profile extends AppCompatActivity {
 //        setContentView(R.layout.activity_main);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile);
         activity = this;
-        Profile_imageView = findViewById(R.id.profile_imageView);
-        Image = findViewById(R.id.imageupload);
         fStor = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-        Profile_imageView.setImageResource(R.drawable.inconu3);
 
         namerecupe = findViewById(R.id.name_recupe);
         mailrecupe = findViewById(R.id.mail_recupe);
@@ -118,12 +114,6 @@ public class Profile extends AppCompatActivity {
                 return null;
             }
         });
-        Image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Profile.this, UploadPhoto.class));
-            }
-        });
     }
 
     private void initView() {
@@ -148,7 +138,7 @@ public class Profile extends AppCompatActivity {
     private void setupViewPager(ViewPager2 viewPager) {
         adapter =new ViewPagerAdapter(activity.getSupportFragmentManager(),
                 activity.getLifecycle()     );
-        adapter.addFragment(new OneFragment(), "Signalements");
+        adapter.addFragment(new OneFragment(), "Vos signalements");
         adapter.addFragment(new TwoFragment(), "Vos renouvellements");
 
 
@@ -193,11 +183,7 @@ public class Profile extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        String imageUrl = document.getString("imageUrl");
-                        if (imageUrl != null) {
-                            // Utilise Glide pour charger et afficher l'image à partir de l'URL
-                            Glide.with(Profile.this).load(imageUrl).into(Profile_imageView);
-                        }
+
                         String userName = document.getString("Nom");
                         namerecupe.setText(userName);
 

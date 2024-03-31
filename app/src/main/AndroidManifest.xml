@@ -37,7 +37,7 @@
             android:name=".ConfirmationSignalment"
             android:exported="false" />
         <activity
-            android:name=".Inscription"
+            android:name=".InscriptionActivity"
             android:exported="false" />
         <activity
             android:name=".Connexion"

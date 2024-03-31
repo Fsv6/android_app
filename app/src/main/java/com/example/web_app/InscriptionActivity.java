@@ -8,15 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
-import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +32,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Inscription extends AppCompatActivity {
+public class InscriptionActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText Inscr_nom, inscr_prenom, inscr_mail,inscr_motdepasse;
     private Button signupButton;
@@ -66,20 +62,17 @@ public class Inscription extends AppCompatActivity {
                 String nom = Inscr_nom.getText().toString().trim();
                 String prenom = inscr_prenom.getText().toString().trim();
 
-
-
-
                 if (mail.isEmpty()){
-                    inscr_mail.setError("L'email ne peut être vide");
+                    inscr_mail.setError("L'email doit être indiqué");
                 }
                 if (pass.isEmpty()){
-                    inscr_motdepasse.setError("Mot de passe ne peut être vide");
+                    inscr_motdepasse.setError("Le mot de passe doit être indiqué");
                 } else{
                     auth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(Inscription.this, "Inscription réussie", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(InscriptionActivity.this, "Inscription réussie", Toast.LENGTH_SHORT).show();
                                 userID = auth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStor.collection("users").document(userID);
 
@@ -103,9 +96,9 @@ public class Inscription extends AppCompatActivity {
                                     }
                                 });
 
-                                startActivity(new Intent(Inscription.this, Connexion.class));
+                                startActivity(new Intent(InscriptionActivity.this, Connexion.class));
                             } else {
-                                Toast.makeText(Inscription.this, "Échec de l'inscription" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(InscriptionActivity.this, "Échec de l'inscription" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -117,10 +110,8 @@ public class Inscription extends AppCompatActivity {
         TextView Condition = findViewById(R.id.condition);
         String texteComplet = "J’accepte les Conditions d’utilisation de PharmAssist et reconnais la Politique de confidentialité.";
 
-        // Créer une SpannableString
         SpannableString spannableString = new SpannableString(texteComplet);
 
-        // Définir les ClickableSpans pour chaque partie du texte
         ClickableSpan conditionsClickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
@@ -134,16 +125,13 @@ public class Inscription extends AppCompatActivity {
             }
         };
 
-        // Appliquer les ClickableSpans au TextView
         spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(conditionsClickableSpan, 14, 53, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(confidentialiteClickableSpan, 70, 99, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        // Activer la gestion des clics sur le TextView
         Condition.setMovementMethod(android.text.method.LinkMovementMethod.getInstance());
 
-        // Appliquer la SpannableString au TextView
         Condition.setText(spannableString);
     }
 
@@ -155,7 +143,6 @@ public class Inscription extends AppCompatActivity {
                 "4. Vous ne devez pas diffuser de contenu offensant ou inapproprié.\n" +
                 "En cas de violation de ces règles, nous nous réservons le droit de suspendre ou de résilier votre compte.";
 
-        // Création du dialogue
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Conditions d'utilisation")
                 .setMessage(messageConditions)
@@ -168,12 +155,10 @@ public class Inscription extends AppCompatActivity {
         dialog.show();
     }
     private void afficherDialogueConfidentialite() {
-        // Message spécifique pour la Politique de confidentialité
         String messageConfidentialite = "Dans le cadre de notre politique de confidentialité, nous nous engageons à protéger vos informations personnelles. " +
                 "Nous ne partagerons jamais vos données avec des tiers sans votre consentement.\n" +
                 "Vous devez également accepter de ne pas partager votre identifiant ou mot de passe avec d'autres utilisateurs.";
 
-        // Création du dialogue
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Politique de confidentialité")
                 .setMessage(messageConfidentialite)
@@ -185,6 +170,7 @@ public class Inscription extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
 
 
 }

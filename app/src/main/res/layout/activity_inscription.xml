@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Inscription">
+    tools:context=".InscriptionActivity">
 
 
     <TextView
@@ -158,7 +158,6 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="J’accepte les Conditions d’utilisation de PharmAssist et reconnais la Politique de confidentialité."
         android:textSize="15sp"
         android:fontFamily="@font/inter"
         android:textColor="@color/black"

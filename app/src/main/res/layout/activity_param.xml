@@ -1,39 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/param_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/title_param"
         android:textAlignment="center"
         android:textColor="@color/bg"
         android:textSize="34sp"
         android:textStyle="bold"
-        android:fontFamily="@font/inter"/>
+        android:fontFamily="@font/inter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/preferences_container"
+        app:layout_constraintVertical_bias="0.3" />
 
     <FrameLayout
         android:id="@+id/preferences_container"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="500dp"
-        android:layout_marginTop="50dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/param_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_deco"
+        app:layout_constraintVertical_bias="0.1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_deco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:paddingHorizontal="15dp"
         android:background="@drawable/button_bg"
         android:text="@string/deco_btn"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/preferences_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnav"
+        app:layout_constraintVertical_bias="0.1" />
 
-</LinearLayout>
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/bottomnav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:mbn_backgroundBottomColor="#E0D0E3"
+        app:mbn_circleColor="#ffffff"
+        app:mbn_countBackgroundColor="#090808"
+        app:mbn_countTextColor="#ffffff"
+        app:mbn_defaultIconColor="#1385BE"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="#3c415e"
+        app:mbn_shadowColor="#1f212121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

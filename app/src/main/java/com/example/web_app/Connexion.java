@@ -2,21 +2,13 @@ package com.example.web_app;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -59,7 +51,6 @@ public class Connexion extends AppCompatActivity {
     private FirebaseAuth auth;
     String userID;
     private CardView BtnSignInWithGoogleCardView;
-    private ImageView Admin;
     private FirebaseFirestore fStore;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 20;
@@ -71,7 +62,6 @@ public class Connexion extends AppCompatActivity {
         setContentView(R.layout.activity_connexion);
 
         loginEmail = findViewById(R.id.login_email);
-        Admin = findViewById(R.id.admin);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         Signup_button = findViewById(R.id.signup_button);
@@ -108,12 +98,10 @@ public class Connexion extends AppCompatActivity {
                 if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     if (!pass.isEmpty()) {
                         if (email.equals("admin@admin.com") && pass.equals("admin2024")) {
-                            // Si l'email et le mot de passe correspondent à l'administrateur
                             Toast.makeText(Connexion.this, "Connexion réussie en tant qu'administrateur", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Connexion.this, Admin.class)); // Remplacez ActivitéAdmin par le nom de votre activité administrateur
+                            startActivity(new Intent(Connexion.this, Admin.class));
                             finish();
                         } else {
-                            // Si ce n'est pas l'administrateur, connexion normale
                             auth.signInWithEmailAndPassword(email, pass)
                                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                         @Override
@@ -144,19 +132,13 @@ public class Connexion extends AppCompatActivity {
         Signup_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Connexion.this, Inscription.class));
+                startActivity(new Intent(Connexion.this, InscriptionActivity.class));
             }
         });
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Connexion.this, ForgetPassword.class));
-            }
-        });
-        Admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Connexion.this, Admin.class));
             }
         });
 
@@ -172,12 +154,9 @@ public class Connexion extends AppCompatActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
@@ -198,14 +177,11 @@ public class Connexion extends AppCompatActivity {
 
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = auth.getCurrentUser();
-                            // Ajouter l'utilisateur à Firestore
                             if (user != null) {
                                 addUserToFirestore(user);
                             }
-                            // Redirection vers l'activité principale
                             redirectToMainActivity();
                         } else {
-                            // Si la connexion avec Google échoue, affichez un message d'erreur
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(Connexion.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -218,14 +194,12 @@ public class Connexion extends AppCompatActivity {
     private void redirectToMainActivity() {
         Intent intent = new Intent(Connexion.this, MainActivity.class);
         startActivity(intent);
-        finish(); // Pour fermer l'activité actuelle après la redirection
+        finish();
     }
 
     private void addUserToFirestore(FirebaseUser user) {
-        // Accéder à l'instance de Firestore
         fStore = FirebaseFirestore.getInstance();
 
-        // Vérifier si l'utilisateur existe déjà dans la collection "users" avec son UID
         DocumentReference userRef = fStore.collection("users").document(user.getUid());
         userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -233,23 +207,16 @@ public class Connexion extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Log.d(TAG, "User already exists in Firestore");
-                        // L'utilisateur existe déjà, vous pouvez mettre à jour les données ici si nécessaire
-                        // Par exemple, si vous souhaitez mettre à jour le prénom de l'utilisateur, vous pouvez le faire comme ceci :
-                        // userRef.update("fname", nameParts[0]);
+                        Log.d(TAG, "User déjà dans Firestore");
                     } else {
-                        // L'utilisateur n'existe pas encore, vous pouvez l'ajouter à Firestore
-                        // Créer un nouvel objet utilisateur avec l'email et le prénom
                         Map<String, Object> userData = new HashMap<>();
                         userData.put("Email", user.getEmail());
 
-                        // Diviser le nom complet en prénom et nom de famille
                         String[] nameParts = user.getDisplayName().split(" ");
                         if (nameParts.length > 0) {
                             userData.put("Nom", nameParts[0]);
                         }
 
-                        // Ajouter l'utilisateur à la collection "users" avec son UID comme identifiant de document
                         fStore.collection("users").document(user.getUid())
                                 .set(userData)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {

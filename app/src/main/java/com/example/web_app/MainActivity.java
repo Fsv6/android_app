@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void Scanecode() {
         ScanOptions options = new ScanOptions();
-        options.setPrompt("volume up to flash");
+        options.setPrompt("Pour le flash, appuyer sur le bouton pour augmenter le volume sonore");
         options.setBeepEnabled(true);
         options.setOrientationLocked(true);
         options.setCaptureActivity(CaptureAct.class);

@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="192dp"
-        android:layout_above="@+id/bottomnav"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="54dp"
-
         android:layout_marginTop="50dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="21dp"
+        android:src="@drawable/img"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/img" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/bottomnav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:mbn_backgroundBottomColor="#E0D0E3"
         app:mbn_circleColor="#ffffff"
         app:mbn_countBackgroundColor="#090808"
@@ -36,58 +35,72 @@
         app:mbn_defaultIconColor="#1385BE"
         app:mbn_rippleColor="#2f424242"
         app:mbn_selectedIconColor="#3c415e"
-        app:mbn_shadowColor="#1f212121"
-        />
+        app:mbn_shadowColor="#1f212121" />
 
     <Button
         android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView10"
+        android:layout_below="@+id/textView_main"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="40dp"
-        android:text="DataMatrix" />
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="60dp"
+        android:text="DataMatrix"
+        android:textSize="18sp"
+        android:fontFamily="@font/inter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_main" />
 
     <Button
         android:id="@+id/button_cip"
         android:layout_width="121dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView10"
+        android:layout_below="@+id/textView_main"
         android:layout_alignParentStart="true"
         android:layout_marginStart="57dp"
-        android:layout_marginTop="83dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="23dp"
-        android:text="Code CIP" />
+        android:fontFamily="@font/inter"
+        android:text="Code CIP"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/scan"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_main" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView_main"
         android:layout_width="wrap_content"
-        android:layout_height="58dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="134dp"
-        android:layout_marginEnd="45dp"
-        android:text="Signalez vos médicaments indispensables : "
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textViewGreeting"
-        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="179dp"
-        android:text="Bonjour XXX !"
+
+        android:layout_marginTop="176dp"
+        android:fontFamily="@font/inter"
+        android:padding="15dp"
+        android:text="Signalez vos médicaments indispensables en choissisant la méthode de saisie désirée :"
+        android:textAlignment="center"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textViewGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="56dp"
+        android:fontFamily="@font/inter"
+        android:text="Bonjour XXX !"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
