@@ -20,7 +20,8 @@
     <FrameLayout
         android:id="@+id/preferences_container"
         android:layout_width="match_parent"
-        android:layout_height="550dp"/>
+        android:layout_height="500dp"
+        android:layout_marginTop="50dp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_deco"
