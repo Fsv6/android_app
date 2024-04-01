@@ -5,76 +5,79 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class signalementadapteradmin extends ArrayAdapter<Signalement> {
-    Activity activity;
-    int itemResourceId;
-    List<Signalement> items;
+    private Activity activity;
+    private int itemResourceId;
+    private List<Signalement> items;
 
-    public signalementadapteradmin(Activity activity, int itemResourceId,
-                              List<Signalement> items){
+    public signalementadapteradmin(Activity activity, int itemResourceId, List<Signalement> items) {
         super(activity, itemResourceId, items);
         this.activity = activity;
         this.itemResourceId = itemResourceId;
         this.items = items;
     }
-    @Override
 
-    public View getView(int position, View convertView, ViewGroup parent){
-        View layout = convertView;
-        if (convertView == null){
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        ViewHolder holder;
+
+        if (convertView == null) {
             LayoutInflater inflater = activity.getLayoutInflater();
-            layout = inflater.inflate(itemResourceId, parent, false);
-        }
-
-        TextView mergedTextView = layout.findViewById(R.id.cipTV); // TextView unique pour afficher la fusion des informations
-
-        Signalement signalement = items.get(position);
-
-        // Séparer la désignation en mots en utilisant l'espace comme délimiteur
-        String[] words = signalement.designation.split(" ");
-
-        // Récupérer le premier mot de la désignation
-        String firstWord = words[0];
-
-        // Fusionner le premier mot avec le CIP dans une seule chaîne de caractères
-        String mergedText = firstWord + " (CIP: " + signalement.CIP13 + ")";
-
-        // Comparer le timestamp du signalement avec le timestamp actuel pour déterminer depuis combien de temps il a été ajouté
-        long currentTime = System.currentTimeMillis();
-        long signalementTime = signalement.Date.getTime(); // Obtenez le temps en millisecondes directement à partir de l'objet Timestamp
-        long difference = currentTime - signalementTime;
-        long minutes = difference / (1000 * 60);
-        long hours = difference / (1000 * 60 * 60);
-        long days = difference / (1000 * 60 * 60 * 24);
-
-        // Déterminer le message à afficher en fonction de la différence de temps
-        String timeAgoMessage;
-        if (minutes < 60) {
-            timeAgoMessage = "Il y a " + minutes + " minutes";
-        } else if (hours < 24) {
-            timeAgoMessage = "Il y a " + hours + " heures";
+            convertView = inflater.inflate(itemResourceId, parent, false);
+            holder = new ViewHolder();
+            holder.cipTV = convertView.findViewById(R.id.cipTV);
+            holder.dateTV = convertView.findViewById(R.id.dateTV);
+            holder.checkBoxTraitement = convertView.findViewById(R.id.signalementCheckBox);
+            convertView.setTag(holder);
         } else {
-            timeAgoMessage = "Il y a " + days + " jours";
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        // Ajouter le message de temps écoulé à la chaîne fusionnée
-        mergedText += "\n" + timeAgoMessage;
+        final Signalement signalement = getItem(position);
+        if (signalement != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            holder.cipTV.setText(String.format("CIP: %s - %s", signalement.CIP13, signalement.designation));
+            holder.dateTV.setText(dateFormat.format(signalement.Date));
+            holder.checkBoxTraitement.setChecked(signalement.traité);
 
-        // Définir le texte du TextView avec la chaîne fusionnée
-        mergedTextView.setText(mergedText);
+            holder.checkBoxTraitement.setOnClickListener(v -> {
+                boolean isChecked = holder.checkBoxTraitement.isChecked();
+                // Here, update the 'traité' status of the Signalement
+                signalement.traité = isChecked;
 
-        return layout;
+                // Update Firestore document
+                FirebaseFirestore.getInstance()
+                        .collection("Signalements")
+                        .document(String.valueOf(signalement.CIP13)) // Assure that CIP13 can be used as a unique ID
+                        .update("traité", isChecked)
+                        .addOnSuccessListener(aVoid -> {
+                            // If the update was successful, you might want to refresh the ListView
+                            // notifyDataSetChanged(); // Be cautious with this line; it can cause an infinite loop if not handled properly.
+                        });
+
+            });
+        }
+
+        return convertView;
     }
 
-    @Override
-    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return getView(position, convertView, parent);
+    static class ViewHolder {
+        TextView cipTV;
+        TextView dateTV;
+        CheckBox checkBoxTraitement;
     }
+
 }
+
