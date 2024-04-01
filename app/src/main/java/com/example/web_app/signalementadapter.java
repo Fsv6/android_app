@@ -1,17 +1,18 @@
 package com.example.web_app;
 
 
-        import android.app.Activity;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
-        import android.widget.TextView;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-        import java.util.List;
+import java.util.List;
 
 public class signalementadapter extends ArrayAdapter<Signalement> {
     Activity activity;
@@ -19,7 +20,7 @@ public class signalementadapter extends ArrayAdapter<Signalement> {
     List<Signalement> items;
 
     public signalementadapter(Activity activity, int itemResourceId,
-                          List<Signalement> items){
+                              List<Signalement> items){
         super(activity, itemResourceId, items);
         this.activity = activity;
         this.itemResourceId = itemResourceId;
@@ -63,7 +64,7 @@ public class signalementadapter extends ArrayAdapter<Signalement> {
         Signalement signalement = items.get(position);
 
         // Séparer la désignation en mots en utilisant l'espace comme délimiteur
-        String[] words = signalement.denomination.split(" ");
+        String[] words = signalement.designation.split(" ");
 
         // Récupérer le premier mot de la désignation
         String firstWord = words[0];
