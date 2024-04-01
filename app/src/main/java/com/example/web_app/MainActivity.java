@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         userID = auth.getCurrentUser().getUid();
         TextViewGreeting = findViewById(R.id.textViewGreeting);
         Scan = findViewById(R.id.scan);
+
+
         Scan.setOnClickListener(v -> {
             Scanecode();
         });

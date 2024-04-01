@@ -1,22 +1,21 @@
 package com.example.web_app;
 
 import java.util.Date;
-import java.sql.Timestamp;
+
 public class Signalement {
-    long CIP13; // Changement du type de données de int à long
-    String designation;
+    long CIP13;
+    String denomination;
     Date Date;
     boolean traité;
 
-    // Constructeur par défaut sans arguments
     public Signalement() {
         // Nécessaire pour Firestore
     }
 
     // Autre constructeur
-    public Signalement(long CIP13, String designation, Date Date) {
+    public Signalement(long CIP13, String denomination, Date Date) {
         this.CIP13 = CIP13;
-        this.designation = designation;
+        this.denomination = denomination;
         this.Date = Date;
         this.traité = traité;
     }
@@ -38,12 +37,12 @@ public class Signalement {
         this.traité = traité;
     }
 
-    public String getDesignation() {
-        return designation;
+    public String getDenomination() {
+        return denomination;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setDenomination(String denomination) {
+        this.denomination = denomination;
     }
 
     public Date getDate() {

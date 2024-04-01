@@ -63,7 +63,6 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile);
         activity = this;
         fStor = FirebaseFirestore.getInstance();
@@ -83,7 +82,6 @@ public class Profile extends AppCompatActivity {
         bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
-                /* Toast.makeText(MainActivity.this,"Iteam click"+model.getId(),Toast.LENGTH_SHORT).show();*/
                 return null;
             }
         });
@@ -96,17 +94,14 @@ public class Profile extends AppCompatActivity {
                 Intent intent;
                 switch (model.getId()) {
                     case home:
-                        // Créer un Intent pour l'activité Home
                         intent = new Intent(Profile.this, MainActivity.class);
                         startActivity(intent);
                         break;
                     case param:
-                        // Créer un Intent pour l'activité Dashboard
                         intent = new Intent(Profile.this, ParameterActivity.class);
                         startActivity(intent);
                         break;
                     case profil:
-                        // Créer un Intent pour l'activité Profil
                         intent = new Intent(Profile.this, Profile.class);
                         startActivity(intent);
                         break;
@@ -118,7 +113,6 @@ public class Profile extends AppCompatActivity {
 
     private void initView() {
         setupViewPager(binding.viewPager);
-//        binding.tabLayout.setupWithViewPager(binding.viewPager);
 
 
         new TabLayoutMediator(binding.tabLayout, binding.viewPager,
@@ -184,8 +178,10 @@ public class Profile extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
 
-                        String userName = document.getString("Nom");
-                        namerecupe.setText(userName);
+                        String userNom = document.getString("Nom");
+                        String userPrenom = document.getString("Prenom");
+
+                        namerecupe.setText(userNom + " " + userPrenom);
 
                         String userEmail = document.getString("Email");
                         mailrecupe.setText(userEmail);

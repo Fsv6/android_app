@@ -7,6 +7,9 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -24,9 +27,7 @@
         <activity
             android:name=".Admin"
             android:exported="false" />
-        <activity
-            android:name=".UploadPhoto"
-            android:exported="false" />
+
         <activity
             android:name=".Profile"
             android:exported="false" />
@@ -49,9 +50,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".CipActivity"
-            android:exported="false" />
+
         <activity
             android:name=".CaptureAct"
             android:screenOrientation="portrait"

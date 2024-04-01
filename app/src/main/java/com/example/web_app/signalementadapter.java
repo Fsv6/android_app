@@ -6,7 +6,6 @@ package com.example.web_app;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ArrayAdapter;
-        import android.widget.ImageView;
         import android.widget.TextView;
 
         import androidx.annotation.NonNull;
@@ -64,7 +63,7 @@ public class signalementadapter extends ArrayAdapter<Signalement> {
         Signalement signalement = items.get(position);
 
         // Séparer la désignation en mots en utilisant l'espace comme délimiteur
-        String[] words = signalement.designation.split(" ");
+        String[] words = signalement.denomination.split(" ");
 
         // Récupérer le premier mot de la désignation
         String firstWord = words[0];
