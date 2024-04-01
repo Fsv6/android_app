@@ -62,6 +62,5 @@ dependencies {
     implementation ("com.etebarian:meow-bottom-navigation:1.2.0")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.20")
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
-
-
+    
 }
