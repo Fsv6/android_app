@@ -48,7 +48,7 @@ public class signalementadapteradmin extends ArrayAdapter<Signalement> {
         final Signalement signalement = getItem(position);
         if (signalement != null) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-            holder.cipTV.setText(String.format("CIP: %s - %s", signalement.CIP13, signalement.designation));
+            holder.cipTV.setText(String.format("CIP: %s - %s", signalement.CIP13, signalement.denomination));
             holder.dateTV.setText(dateFormat.format(signalement.Date));
             holder.checkBoxTraitement.setChecked(signalement.traité);
 

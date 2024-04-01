@@ -64,7 +64,7 @@ public class signalementadapter extends ArrayAdapter<Signalement> {
         Signalement signalement = items.get(position);
 
         // Séparer la désignation en mots en utilisant l'espace comme délimiteur
-        String[] words = signalement.designation.split(" ");
+        String[] words = signalement.denomination.split(" ");
 
         // Récupérer le premier mot de la désignation
         String firstWord = words[0];
