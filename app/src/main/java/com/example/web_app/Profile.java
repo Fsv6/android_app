@@ -181,7 +181,12 @@ public class Profile extends AppCompatActivity {
                         String userNom = document.getString("Nom");
                         String userPrenom = document.getString("Prenom");
 
-                        namerecupe.setText(userNom + " " + userPrenom);
+                      /*  namerecupe.setText(userNom + " " + userPrenom);*/
+                        if (userPrenom == null) {
+                            namerecupe.setText(userNom);
+                        } else {
+                            namerecupe.setText(userNom + " " + userPrenom);
+                        }
 
                         String userEmail = document.getString("Email");
                         mailrecupe.setText(userEmail);

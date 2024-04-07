@@ -226,10 +226,10 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void addSignalement(long codeCip, String designation, String userId, String description){
+    private void addSignalement(long codeCip, String denomination, String userId, String description){
         Map<String, Object> signalement = new HashMap<>();
         signalement.put("CIP13", codeCip);
-        signalement.put("designation", designation);
+        signalement.put("denomination", denomination);
         signalement.put("user_id", userId);
         signalement.put("Date", new Date());
         signalement.put("traité", false);

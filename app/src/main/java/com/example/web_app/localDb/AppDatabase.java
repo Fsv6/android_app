@@ -1,7 +1,6 @@
 package com.example.web_app.localDb;
 
 import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;

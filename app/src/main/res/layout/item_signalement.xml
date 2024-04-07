@@ -20,17 +20,6 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/dateTV"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20px"
-            android:text="designationcip"
-            android:fontFamily="@font/inter"
-            android:textColor="@color/black"
-            android:layout_alignLeft="@id/cipTV"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
         <!-- <TextView
              android:id="@+id/designationTV"

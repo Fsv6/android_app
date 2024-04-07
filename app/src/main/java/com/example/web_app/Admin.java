@@ -72,6 +72,7 @@ public class Admin extends AppCompatActivity {
     private void initView() {
         setupViewPager(binding.viewPager);
 
+
         new TabLayoutMediator(binding.tabLayout, binding.viewPager,
                 (tab, position) -> {
                     tab.setText(adapter.mFragmentTitleList.get(position));
